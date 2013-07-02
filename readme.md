@@ -1,6 +1,6 @@
 SNAKE GAME IN JAVA
 ==================
-
+ Snake + Java .... i am already telling you proceed with caution!
 
  I dunno if i should even distribute this.. I mean something inside me died after reading my own code!
  But err its humorously commented at places
