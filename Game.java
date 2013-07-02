@@ -1,38 +1,49 @@
 import java.util.*;
 import java.awt.*;
 import java.awt.event.*;
+// This file has all the game logic
+// And rendering stuff inside it
+// The code is kind of horrible at places
+// But its not that bad
 
-// Make the rendering loop and logic loop a differunt thread ladies!
-// Now this way we move without waiting for input
+
 class Game{
-	// The privates for the game!
+	// The private fields for the game!
+	// The names are self explanatory 
 	private boolean Game_Over;
 	private int score;
 	private Snake player;
 	private Food[] foods;
-	
+
 	// The game constructor
 	public Game(){
-		// This is a snake game so lets make a snake!
+		// Create a snake object
 		this.player = new Snake();
-		// Some apetizers would be nice
+		// Create Some* food ( I am using the word some because the code is extensible you can easily create far complex scenarioes using multiple food 
+		// keeping this as a base)
 		this.foods = new Food[Constants.MAX_NUM_FOOD];
 		for( int i = 0; i < Constants.MAX_NUM_FOOD; i ++ ){
-			// Dont make it on the player.. it'd be and error... its a snake
-			// Insects run from it its a terror... yeah bad rhyme
+			// Create the food, we pass the player reference since we dont
+			// want the food to be generated on the player's head
+			// that would be a bad jackpot
+			// so we check it.
 			this.foods[i] = new Food(this.player);
 		}
 	}
-	// Is it over already ?? NOOOOOOOOOOOO!
+
+	// Is the game over ?
+	// The getter for Game_Over private field
 	public boolean isOver(){
 		return Game_Over;
 	}
-	// Lets handle them keys!
+
+	// A function , eventlistener for handling keys
 	public void handleKeyDown( KeyEvent e ){
 		// Gets which key was pressed
 		int key = (e.getKeyCode());
 		// This would look better with a switch
-		// But i am too lasy to do so.
+		// The code is self explanatiory
+		// VK_<XYZ> are special values for assigning keys
 		if( key == KeyEvent.VK_LEFT ){
 			this.player.setDirection(Constants.DIR_LEFT);
 		}
@@ -46,19 +57,22 @@ class Game{
 			this.player.setDirection(Constants.DIR_RIGHT);
 		}
 	}
-	// And then we shall make everything visible
+
+
+	// The method to display the game
 	public void Display(Graphics2D g2){
-		// Show the venemous
+		// Display the snake
 		player.Display(g2);
 		for( int i = 0; i < Constants.MAX_NUM_FOOD; i ++ ){
-			// Show the innocent(S)
+			// Display the food
 			foods[i].Display(g2);
 		}
-		// Tell them how much burpin they have done!
+		// Show the score
 		g2.drawString(("Score : " + this.score),Constants.WIDTH- 100,Constants.HEIGHT);
 	}
 
-	// Tick is a unit execution of game logic
+	// Tick is a unit execution of game logic,
+	// Each tick is one movement of snake
 	public void tick(){
 		//Do it ony if the game is not over!
 		if(!this.Game_Over){
@@ -69,15 +83,14 @@ class Game{
 					//Is the snake eating ?
 					if(this.foods[i].isConsumed(this.player)){
 						// The snake ate
-						// So change world!
+						// So change the food and increase the score
 						this.player.Eat(this.foods[i]);
 						this.score ++;
-						this.foods[i] = new Food(this.player); // Dont make it on the top of player.
+						this.foods[i] = new Food(this.player); //explained aboe
 					}
 				}
 		}else{
-			// EHOOOOOOOOOOOOOOOO!
-			// For my console friendly kids read the console :D
+			// For console readers show them they ate themselves to lose
 			System.out.println("I ate myself");
 		}
 	}

@@ -1,19 +1,10 @@
 SNAKE GAME IN JAVA
 ==================
- Snake + Java .... i am already telling you proceed with caution!
+A snake game i wrote in java, when trying to learn java. Though this was a horrible experience for me
+since I come from the land of C / C++ and JavaScript with a pinch of Python and more javascript.
 
- I dunno if i should even distribute this.. I mean something inside me died after reading my own code!
- But err its humorously commented at places
- and ranted at others
-
-
- a better and fun to play snake is present here http://jsfiddle.net/fyKzV/15/ All hail JS!
-
-WARNING
-==========
-
-CODE IS HUMOROUSLY COMMENTED PLEASE ACCEPTED WITH PINCH OF SARCASM AND CRUDE HUMOUR!
-
+A fairly feature rich version of the same game is here  http://jsfiddle.net/fyKzV/15/  (which is about 100 line smaller and consice to understand)
+I have tried to explain the code myself as much as I can.. but i am fairly new to java.
 
 TO RUN IT...
 (Controls are UP,DOWN,LEFT,RIGHT) [[ This is classic game of snake so ... dont expect it to be awesome!]]
