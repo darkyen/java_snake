@@ -117,8 +117,6 @@ class Snake{
 
 	// A method to obtain an iterator for the snake's parts
 	public Iterator getPartsIterator(){
-		// If others want to know about my body they need
-		// to have an iterator of my private part(s) ;D ;D pun intended :D 
 		return this.parts.iterator();
 	}
 
