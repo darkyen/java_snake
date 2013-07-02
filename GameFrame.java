@@ -2,15 +2,20 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.*;
 import javax.swing.*;
+// This file accounts
+// for all the things that happen while handling the window management
+// and makes the game environment window fashioend
+
 
 // Well they say its better to use a panel and then use it inside the frame
 // But since i was doing the basic game it thought
-// Doing Jpanel and then Jframe is a waste of coding space
-// and my time... but oh well talking about waste of space and time we are in JAVA!!!!
+// Doing Jpanel and then Jframe is a waste of coding space & time... it actually worked with JFrame aswell
+// Since canvas is low level but then i had problems with spacing and layouut
+// Talking about waste of space and time we are in JAVA!!!!
+// So finally ended up 
 
 
-
-// The window frame for holding the game..
+// The Panel for holding the game..
 // Cause its time to play the game !!
 // Mwahaha... [<insert HHH music here>]
 class GamePanel extends JPanel implements ActionListener{
@@ -71,6 +76,10 @@ class GamePanel extends JPanel implements ActionListener{
 	}
 }
 
+
+// The window frame TOP LEVEL OBJECT
+// FOR THE GAME
+// This provides the magical "close" button!
 class GameFrame extends JFrame{
 	GamePanel ctx;
 	public GameFrame(String title){

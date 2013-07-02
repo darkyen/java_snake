@@ -1,7 +1,10 @@
 import java.util.*;
 import java.awt.*;
 import java.awt.geom.*;
-// Helper class for Part
+// This file manages snake and its parts
+
+
+// Helper class for Part of a snake
 class Part{
 	public int x;
 	public int y;
