@@ -62,8 +62,8 @@ class GamePanel extends JPanel implements ActionListener{
 		// Calls the tick;
 		if( this.game != null && !is_over ){
 			this.game.tick();
+			is_over = this.game.isOver();
 		}
-		is_over = this.game.isOver();
 		// Repaint The game , this will actually call the paint function since it makes a request to repaint
         this.repaint();
     }
