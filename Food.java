@@ -2,8 +2,15 @@ import java.util.*;
 import java.awt.*;
 import java.awt.geom.*;
 // This file has the food definition and declarations
+// A food object has an x position
+// a y position
+// and a quality , the quality of food decides how much the length of snake will increase
+// when he eats it.
 
-// a class for Food!
+// When generating the food we dont want the food to be generated
+// on the top of the snake and hence there is a special constructor
+// which ensures our random generation of food doesnt creates food on the top of the snake
+
 class Food{
 	// Position feilds for the food
 	public int x;
@@ -12,6 +19,7 @@ class Food{
 	public int quality;
 
 	// Private helper function for randomization
+	// This sets all the field values to random
 	private void randomize(){
 		// Dont ... ever ... do (int) Math.random() * Something... 
 		// That will cause horrific error because it will convert Math.random() to int which is a 
@@ -24,6 +32,12 @@ class Food{
 	}
 
 	//A private helper function for collision detection
+	// The current collision we use is very simple
+	// if two objects are colliding then the absolute difference of their
+	// position coordinates must be less then the width of the smaller object
+	// Try drawing two rectangles and test this theory if you still dont undrstand
+	// since by constrains of our game we use blocks of fixed size we check it
+	// against block_size
 	private boolean coll_det(int x,int y){
 		return (Math.abs(x - this.x) < Constants.block_size
 			&& Math.abs(y - this.y) < Constants.block_size);
@@ -39,7 +53,12 @@ class Food{
 	public Food( Snake s){
 		boolean collision = false;
 
-		// Good example of a do-while loop though!
+		// Good example of a do-while loop
+		// This generates a food once then checks for the collision
+		// If collision occurs then it re-creates the food
+		// and checks for collision in the snake body 
+		// This happens until food is generated in such a way that it 
+		// doesn't overlaps the snake.
 		do{
 			collision = false;
 			// Generate food
@@ -65,6 +84,8 @@ class Food{
 	// Was the food already eaten ? (In reality being eaten)
 	public Boolean isConsumed(Snake s){
 		Part snakeHead = s.Head();
+		// If the snake head is colliding with the food
+		// then the food is consumed already
 		if(this.coll_det( snakeHead.x, snakeHead.y )){
 			// Yes.
 			return true;

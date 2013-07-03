@@ -33,6 +33,7 @@ class Game{
 
 	// Is the game over ?
 	// The getter for Game_Over private field
+	// This will help our game frame to decide if to show game over or not
 	public boolean isOver(){
 		return Game_Over;
 	}
@@ -40,10 +41,12 @@ class Game{
 	// A function , eventlistener for handling keys
 	public void handleKeyDown( KeyEvent e ){
 		// Gets which key was pressed
+		// to fire this event.
 		int key = (e.getKeyCode());
 		// This would look better with a switch
 		// The code is self explanatiory
 		// VK_<XYZ> are special values for assigning keys
+		// They are predefined in Java!
 		if( key == KeyEvent.VK_LEFT ){
 			this.player.setDirection(Constants.DIR_LEFT);
 		}
@@ -72,9 +75,13 @@ class Game{
 	}
 
 	// Tick is a unit execution of game logic,
-	// Each tick is one movement of snake
+	// Each tick is a unit change in the game's world
+	// A tick is more or less an event that occurs
+	// every n seconds where n < 1 
+	// because of this the positions of objects change
 	public void tick(){
-		//Do it ony if the game is not over!
+		//Do it ony if the game is not over
+		// Since if game is over we shouldn't change the position values atall.
 		if(!this.Game_Over){
 				// Move the snake
 				this.Game_Over = this.player.move();
