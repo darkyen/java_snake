@@ -161,7 +161,7 @@ class GameFrame extends JFrame{
 		// Object dimensions will be used
 		// to tell the dimensions of the screen 
 		Dimension Dim = new Dimension(Constants.WIDTH,Constants.HEIGHT);
-		\
+		
 		// Set preffered sise for both the frame and panel
 		// Prefferred size will be the size it will adapt
 		c.setPreferredSize(Dim);
