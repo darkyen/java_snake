@@ -1,6 +1,6 @@
 SNAKE GAME IN JAVA
 ==================
-A snake game i wrote in java, when trying to learn java. Though this was a horrible experience for me
+A mini-snake game i wrote in java, when trying to learn java. Though this was a horrible experience for me
 since I come from the land of C / C++ and JavaScript with a pinch of Python and more javascript.
 
 A fairly feature rich version of the same game is here  http://jsfiddle.net/fyKzV/15/  (which is about 100 line smaller and consice to understand)
